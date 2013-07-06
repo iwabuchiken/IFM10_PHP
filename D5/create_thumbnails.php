@@ -247,7 +247,169 @@
 		
 	}
 	
+	function do_job_3() {
+		/*
+		 * Prepare directory
+		 * 
+		 */
+		$src_dir_name = "images";
+		$dst_dir_name = "image_thumbnails";
+		
+		prepare_directory($src_dir_name);
+		prepare_directory($dst_dir_name);
+		
+		// Get file list
+// 		$glob_string = "image/*.*";
+// 		$glob_string = "../image/*.*";
+// 		$glob_string = "../$orig_dir_name/*.*";
+
+		//REF http://stackoverflow.com/questions/720751/how-to-read-a-list-of-files-from-a-folder-using-php answered Apr 6 '09 at 9:20
+		$glob_string_src = "./$src_dir_name/*.*";
+		$glob_string_dst = "./$dst_dir_name/*.*";
+		
+		$file_list_src = glob($glob_string_src);
+		$file_list_dst = glob($glob_string_dst);
+		
+		if ($file_list_src == false) {
+			
+			echo "Can't get file list: $glob_string_src";
+			echo "<br/>";
+			
+			die("Thank you.");
+
+			
+		} else if ($file_list_dst == false) {
+			
+			echo "Can't get file list: $glob_string_dst";
+			echo "<br/>";
+				
+			die("Thank you.");
+			
+		} else {
+			
+// // 			echo "Length=".count($file_list_src)."($glob_string_src)";
+// 			echo "Length=".count($file_list_diff)."($glob_string_src)";
+// 			echo "<br/>";
+			
+			
+		}
+
+		// Create: Basename lists
+		$file_names_src = array();
+		
+		foreach ($file_list_src as $f_src) {
+
+			array_push($file_names_src, basename($f_src));
+						
+		}
+		
+		echo "<br/>";
+		
+		print_r($file_names_src);
+		
+		echo "<br/>";
+
+		// Dst file names
+		$file_names_dst = array();
+		
+		foreach ($file_list_dst as $f_dst) {
+
+			array_push($file_names_dst, basename($f_dst));
+						
+		}
+		
+		echo "<br/>";
+		
+		print_r($file_names_dst);
+		
+		echo "<br/>";
+		
+		// Diff name list
+		$file_names_diff = array_diff($file_names_src, $file_names_dst);
+// 		$file_list_diff = array_diff($file_list_src, $file_list_dst);
+		echo "<br/>";
+		echo "<br/>";
+		echo "Diff";
+		echo "<br/>";
+		
+		print_r($file_names_diff);
+
+		// Source file list
+		echo "<br/>";
+		echo "<br/>";
+		echo "Source";
+		echo "<br/>";
+		
+		print_r($file_list_src);
+		
+		echo "<br/>";
+		
+		// Destination files
+		echo "<br/>";
+		echo "<br/>";
+		
+		echo "Dst files";
+		echo "<br/>";
+		
+		print_r($file_list_dst);
+
+// 		// Diff files
+// 		echo "<br/>";
+// 		echo "<br/>";
+		
+// 		echo "Diff files";
+// 		echo "<br/>";
+		
+// 		foreach ($file_list_diff as $f_src) {
+		
+// 			echo "file=$f_src";
+// 			echo "<br/>";
+		
+// 		}
+		
+		//REF http://stackoverflow.com/questions/720751/how-to-read-a-list-of-files-from-a-folder-using-php answered Apr 6 '09 at 9:20
+		// Resize
+// 		foreach ($file_list_src as $file_name) {
+
+		foreach ($file_names_diff as $file_name) {
+			
+			$res = resize_image(join("/", array($src_dir_name, $file_name)));
+// 			$res = resize_image($file_name);
+			
+			if ($res == true) {
+				
+				echo "Resize => Done: $file_name";
+				echo "<br/>";
+				
+				
+			} else {//if ($res == true)
+			
+				echo "Resize => Failed: $file_name";
+				echo "<br/>";
+				
+			}//if ($res == true)
+				
+			echo "<br/>";
+			
+		}
+		
+		echo "<br/>";
+		
+		echo "Resize => Complete";
+		echo "<br/>";
+		
+	}//function do_job_3()
+
+// 	$pid = pcntl_fork();
+	
+	//Fatal error: Class 'Thread' not found in C:\WORKS\WS\Cake\IFM10\D5\create_thumbnails.php on line 250
+// 	class ThreadExample extends Thread {
+		
+// 	}
+	
+	
 // 	do_job();
-	do_job_2();
+// 	do_job_2();
+	do_job_3();
 	
 ?>
