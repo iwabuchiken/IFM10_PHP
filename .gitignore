@@ -1,0 +1,7 @@
+*.JPG
+*.jpg
+*.png
+*.bmp
+*.BMP
+image/*.*
+image_thumbnails/*.*
