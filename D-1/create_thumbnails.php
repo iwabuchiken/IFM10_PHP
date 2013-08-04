@@ -239,11 +239,299 @@
 	
 	function _resize_image__BMP($filename) {
 		
-		
-		
+		/*
+		 * Setup: File path
+		 */
 		show_message("BMP!", __FILE__, __LINE__, __FUNCTION__);
+
+		// Dir name for thumbnails
+		$newdirname = "../image_thumbnails";
 		
-	}
+		$basename = basename($filename);
+
+		$basename_array = explode(".", $basename);
+		
+		show_message(
+		"Dirname=".dirname($filename),
+		__FILE__, __LINE__, __FUNCTION__);
+		
+		
+		$newfilename = $basename;
+		
+		$newfilepath = join("/",
+				array($newdirname,
+						$newfilename
+				));
+		
+		show_message(
+			"Dirname=".dirname($filename),
+			__FILE__, __LINE__, __FUNCTION__);
+		
+		
+		$res = prepare_directory(dirname($newfilepath));
+		
+		if ($res == true) {
+			
+			show_message(
+				"Dir prepared: ".dirname($newfilepath),
+				__FILE__, __LINE__, __FUNCTION__);
+
+			
+		} else {//if ($res == true)
+
+			show_message(
+				"Dir not prepared: ".dirname($newfilepath),
+				__FILE__, __LINE__, __FUNCTION__);
+			
+		}//if ($res == true)
+
+		echo "File path => #{$filename}";
+		
+		/*
+		 * Get: Image
+		 */
+		
+// 		$img = imagecreatefrombmp($filename);	// => Not working
+		$img = ImageCreateFromBMP2($filename);	// => Works
+		
+		/*
+		 * Resize
+		 */
+		// Thumbnail
+		$orig_X = imagesx($img);
+		$orig_Y = imagesy($img);
+		
+		$new_X = $orig_X / 2;
+		$new_Y = $orig_Y / 2;
+		
+		$images_fin = ImageCreateTrueColor($new_X, $new_Y);
+		
+		ImageCopyResampled(
+				$images_fin, $img,
+				0, 0, 0, 0,
+				// 					$orig_X+1, $orig_Y+1, $new_X, $new_Y);
+				$new_X, $new_Y, $orig_X+1, $orig_Y+1);
+		
+		echo "Image copied";
+		echo "<br/>";
+		
+		/*
+		 * Save image
+		 */
+		echo "New file path=$newfilepath";
+		echo "<br/>";
+		
+// 		$result = ImageJPEG($images_fin,$newfilepath);
+		$result = imagepng($images_fin,$newfilepath);
+		
+		if ($result == true) {
+			
+			echo "Image => Saved : $newfilepath";
+
+			
+		} else {//if ($result == true)
+			
+			echo "Image => Not saved : $newfilepath";
+		
+		}//if ($result == true)
+		
+		echo "<br/>";
+		
+// 		$img = imagecreatefromwbmp($filename);
+		
+		
+		
+	}//function _resize_image__BMP($filename) {
+
+	//http://us2.php.net/manual/en/function.imagecreatefromwbmp.php#86214
+	function imagecreatefrombmp($p_sFile)
+	{
+		//    Load the image into a string
+		$file    =    fopen($p_sFile,"rb");
+		$read    =    fread($file,10);
+		while(!feof($file)&&($read<>""))
+			$read    .=    fread($file,1024);
+	
+		$temp    =    unpack("H*",$read);
+		$hex    =    $temp[1];
+		$header    =    substr($hex,0,108);
+	
+		
+// 		#debug
+// 		show_message(
+// 				"\$hex.length=".strlen($hex)."<br/>",
+// 				__FILE__, __LINE__, __FUNCTION__);
+		
+		//    Process the header
+		//    Structure: http://www.fastgraph.com/help/bmp_header_format.html
+		if (substr($header,0,4)=="424d")
+		{
+			//    Cut it in parts of 2 bytes
+			$header_parts    =    str_split($header,2);
+	
+			//    Get the width        4 bytes
+			$width            =    hexdec($header_parts[19].$header_parts[18]);
+	
+			//    Get the height        4 bytes
+			$height            =    hexdec($header_parts[23].$header_parts[22]);
+	
+			//    Unset the header params
+			unset($header_parts);
+		}
+	
+		//    Define starting X and Y
+		$x                =    0;
+		$y                =    1;
+	
+		//    Create newimage
+		$image            =    imagecreatetruecolor($width,$height);
+	
+		//    Grab the body from the image
+		$body            =    substr($hex,108);
+	
+		//    Calculate if padding at the end-line is needed
+		//    Divided by two to keep overview.
+		//    1 byte = 2 HEX-chars
+		$body_size        =    (strlen($body)/2);
+		$header_size    =    ($width*$height);
+	
+		//    Use end-line padding? Only when needed
+		$usePadding        =    ($body_size>($header_size*3)+4);
+	
+		//    Using a for-loop with index-calculation instaid of str_split to avoid large memory consumption
+		//    Calculate the next DWORD-position in the body
+		for ($i=0;$i<$body_size;$i+=3)
+		{
+			//    Calculate line-ending and padding
+			if ($x>=$width)
+			{
+				//    If padding needed, ignore image-padding
+				//    Shift i to the ending of the current 32-bit-block
+				if ($usePadding)
+					$i    +=    $width%4;
+	
+				//    Reset horizontal position
+				$x    =    0;
+	
+				//    Raise the height-position (bottom-up)
+				$y++;
+	
+				//    Reached the image-height? Break the for-loop
+				if ($y>$height)
+					break;
+			}
+	
+			//    Calculation of the RGB-pixel (defined as BGR in image-data)
+			//    Define $i_pos as absolute position in the body
+			$i_pos    =    $i*2;
+			$r        =    hexdec($body[$i_pos+4].$body[$i_pos+5]);
+			$g        =    hexdec($body[$i_pos+2].$body[$i_pos+3]);
+			$b        =    hexdec($body[$i_pos].$body[$i_pos+1]);
+	
+			//    Calculate and draw the pixel
+			$color    =    imagecolorallocate($image,$r,$g,$b);
+			imagesetpixel($image,$x,$height-$y,$color);
+	
+			//    Raise the horizontal position
+			$x++;
+		}
+	
+		//    Unset the body / free the memory
+		unset($body);
+	
+		//    Return image-object
+		return $image;
+	}//function imagecreatefrombmp($p_sFile)
+
+	//http://au1.php.net/manual/ja/function.imagecreate.php#53879
+	function ImageCreateFromBMP2($filename)
+	{
+		//Ouverture du fichier en mode binaire
+		if (! $f1 = fopen($filename,"rb")) return FALSE;
+	
+		//1 : Chargement des ent�tes FICHIER
+		$FILE = unpack("vfile_type/Vfile_size/Vreserved/Vbitmap_offset", fread($f1,14));
+		if ($FILE['file_type'] != 19778) return FALSE;
+	
+		//2 : Chargement des ent�tes BMP
+		$BMP = unpack('Vheader_size/Vwidth/Vheight/vplanes/vbits_per_pixel'.
+				'/Vcompression/Vsize_bitmap/Vhoriz_resolution'.
+				'/Vvert_resolution/Vcolors_used/Vcolors_important', fread($f1,40));
+		$BMP['colors'] = pow(2,$BMP['bits_per_pixel']);
+		if ($BMP['size_bitmap'] == 0) $BMP['size_bitmap'] = $FILE['file_size'] - $FILE['bitmap_offset'];
+		$BMP['bytes_per_pixel'] = $BMP['bits_per_pixel']/8;
+		$BMP['bytes_per_pixel2'] = ceil($BMP['bytes_per_pixel']);
+		$BMP['decal'] = ($BMP['width']*$BMP['bytes_per_pixel']/4);
+		$BMP['decal'] -= floor($BMP['width']*$BMP['bytes_per_pixel']/4);
+		$BMP['decal'] = 4-(4*$BMP['decal']);
+		if ($BMP['decal'] == 4) $BMP['decal'] = 0;
+	
+		//3 : Chargement des couleurs de la palette
+		$PALETTE = array();
+		if ($BMP['colors'] < 16777216)
+		{
+			$PALETTE = unpack('V'.$BMP['colors'], fread($f1,$BMP['colors']*4));
+		}
+	
+		//4 : Cr�ation de l'image
+		$IMG = fread($f1,$BMP['size_bitmap']);
+		$VIDE = chr(0);
+	
+		$res = imagecreatetruecolor($BMP['width'],$BMP['height']);
+		$P = 0;
+		$Y = $BMP['height']-1;
+		while ($Y >= 0)
+		{
+			$X=0;
+			while ($X < $BMP['width'])
+			{
+				if ($BMP['bits_per_pixel'] == 24)
+					$COLOR = unpack("V",substr($IMG,$P,3).$VIDE);
+				elseif ($BMP['bits_per_pixel'] == 16)
+				{
+					$COLOR = unpack("n",substr($IMG,$P,2));
+					$COLOR[1] = $PALETTE[$COLOR[1]+1];
+				}
+				elseif ($BMP['bits_per_pixel'] == 8)
+				{
+					$COLOR = unpack("n",$VIDE.substr($IMG,$P,1));
+					$COLOR[1] = $PALETTE[$COLOR[1]+1];
+				}
+				elseif ($BMP['bits_per_pixel'] == 4)
+				{
+					$COLOR = unpack("n",$VIDE.substr($IMG,floor($P),1));
+					if (($P*2)%2 == 0) $COLOR[1] = ($COLOR[1] >> 4) ; else $COLOR[1] = ($COLOR[1] & 0x0F);
+					$COLOR[1] = $PALETTE[$COLOR[1]+1];
+				}
+				elseif ($BMP['bits_per_pixel'] == 1)
+				{
+					$COLOR = unpack("n",$VIDE.substr($IMG,floor($P),1));
+					if     (($P*8)%8 == 0) $COLOR[1] =  $COLOR[1]        >>7;
+					elseif (($P*8)%8 == 1) $COLOR[1] = ($COLOR[1] & 0x40)>>6;
+					elseif (($P*8)%8 == 2) $COLOR[1] = ($COLOR[1] & 0x20)>>5;
+					elseif (($P*8)%8 == 3) $COLOR[1] = ($COLOR[1] & 0x10)>>4;
+					elseif (($P*8)%8 == 4) $COLOR[1] = ($COLOR[1] & 0x8)>>3;
+					elseif (($P*8)%8 == 5) $COLOR[1] = ($COLOR[1] & 0x4)>>2;
+					elseif (($P*8)%8 == 6) $COLOR[1] = ($COLOR[1] & 0x2)>>1;
+					elseif (($P*8)%8 == 7) $COLOR[1] = ($COLOR[1] & 0x1);
+					$COLOR[1] = $PALETTE[$COLOR[1]+1];
+				}
+				else
+					return FALSE;
+				imagesetpixel($res,$X,$Y,$COLOR[1]);
+				$X++;
+				$P += $BMP['bytes_per_pixel'];
+			}
+			$Y--;
+			$P+=$BMP['decal'];
+		}
+	
+		//Fermeture du fichier
+		fclose($f1);
+	
+		return $res;
+	}//function ImageCreateFromBMP($filename)
+	
 	/*
 	 * Get file name from GET
 	 */
@@ -365,12 +653,14 @@
 		 * 
 		 */
 		// Set: Dir names
-		$src_dir_name = "../images";
-		$dst_dir_name = "../image_thumbnails";
+// 		$src_dir_name = "./images";
+// 		$dst_dir_name = "./image_thumbnails";
+// 		$src_dir_name = "../images";
+// 		$dst_dir_name = "../image_thumbnails";
 // 		$src_dir_name = "../../images";
 // 		$dst_dir_name = "../../image_thumbnails";
-// 		$src_dir_name = "images";
-// 		$dst_dir_name = "image_thumbnails";
+		$src_dir_name = "images";
+		$dst_dir_name = "image_thumbnails";
 		
 		// Prepare directories
 		prepare_directory($src_dir_name);
