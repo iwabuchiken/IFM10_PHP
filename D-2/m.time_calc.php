@@ -3,6 +3,9 @@
 	
 	<title><?php echo basename(__FILE__); ?></title>
 	
+<!-- REF viewport https://developer.mozilla.org/en-US/docs/Mozilla/Mobile/Viewport_meta_tag -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3">
+	
 </head>
 
 <?php
@@ -27,7 +30,6 @@
 
 <!-- REF focus() http://www.mediacollege.com/internet/javascript/form/focus.html -->
 <body onLoad="document.time_form.time_label.focus();">
-<!-- <body onLoad="document.time_form.date_label.focus();"> -->
 	<form accept-charset="UTF-8" action="." method="get" name="time_form">
 	
 		<br />
@@ -76,7 +78,7 @@
 	
 	<hr/>
 	
-	<a href="./m.time_calc.php">Mobile view</a>
+	<a href="./time_calc.php">Desktop view</a>
 
 </body>
 
