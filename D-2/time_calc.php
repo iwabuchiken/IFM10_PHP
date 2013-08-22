@@ -3,6 +3,19 @@
 	
 	<title><?php echo basename(__FILE__); ?></title>
 	
+	<meta name="viewport"
+           content="width=device-width,
+			user-scalable=yes,
+			initial-scale=0.8,
+                    maximum-scale=3.0" />
+
+	<link rel="stylesheet" href="./stylesheet/main.css" type="text/css">
+                    
+	<script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+
+	<!-- http://www.pori2.net/js/kihon/16.html -->
+	<script type="text/javascript" src="./javascript/main.js"></script>
+	
 </head>
 
 <?php
@@ -27,7 +40,9 @@
 
 <!-- REF focus() http://www.mediacollege.com/internet/javascript/form/focus.html -->
 <body onLoad="document.time_form.time_label.focus();">
+<!-- <body onLoad="document.time_form.time_label.focus(); show_msg();"> -->
 <!-- <body onLoad="document.time_form.date_label.focus();"> -->
+
 	<form accept-charset="UTF-8" action="." method="get" name="time_form">
 	
 		<br />
@@ -78,6 +93,17 @@
 	
 	<a href="./m.time_calc.php">Mobile view</a>
 
+	<hr/>
+	<div>
+		Javascript area
+	
+		<!-- http://homepage3.nifty.com/aya_js/js2/js214.htm -->
+		<INPUT TYPE="button" VALUE="GO" ONCLICK="set_msg();">
+		<INPUT TYPE="button" VALUE="CLEAR" ONCLICK="clear_msg();">
+		
+		<div id="js"><b>Times</b></div>
+		
+	</div>
 </body>
 
 </html>
