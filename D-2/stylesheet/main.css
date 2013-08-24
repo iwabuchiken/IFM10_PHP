@@ -1,3 +1,6 @@
+/* Use padding instead of "br" tag => http://stackoverflow.com/questions/1588671/jquery-remove-on-element-doesnt-hide-used-space */
+/* Comment => http://www.w3schools.com/css/css_syntax.asp */
+/* padding => // http://www.htmq.com/style/padding.shtml */
 div.time_label {
 	
 	padding: 5px 0px 5px 0px;

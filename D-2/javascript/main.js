@@ -19,7 +19,7 @@ function set_msg() {
 //					"value='<?php echo date('H:i:s'); ?>' " +
 //					"/>");
 	
-
+//	http://www.tohoho-web.com/js/jquery/ajax.htm
 	$.ajax({
 		
 	    url: "./utils/main.php",
@@ -51,6 +51,8 @@ function clear_msg() {
 //	target = $("#js");
 //	target.remove();
 	targets = $(".time_label");
+	
+//	http://semooh.jp/jquery/api/manipulation/remove/%5Bexpr%5D/
 	targets.remove();
 	
 }//function clear_msg() {

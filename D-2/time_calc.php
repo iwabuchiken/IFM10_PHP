@@ -27,13 +27,10 @@
 
 	$current = time();
 	
-// 	$date_label = date("Y-m-d");
-// 	$date_label = date("Y-m-d, H:i:s", $current);
-// 	$date_label = date("Y-m-d, H:i:s");
-// 	$date_label = date("Y-m-d H:i:s");
 	$date_label = date("d/m/Y H:i:s");
 	$date_only_label = date("d/m/Y");
 	$time_label = date("H:i:s");
+	$time_label_serial = date("Ymd_His");
 
 	
 ?>
@@ -87,11 +84,23 @@
 				value="<?php echo $time_label; ?>" 
 				readonly/>
 				
+		<br>
+		<br>
+		
+		<input
+				id="timecal_full_serial"
+				name="time_label_serial"
+				onmouseover="this.select()"
+				size="20"
+				type="text"
+				value="<?php echo $time_label_serial; ?>" 
+				readonly/>
+				
 	</form>
 	
 	<hr/>
 	
-	<a href="./m.time_calc.php">Mobile view</a>
+<!-- 	<a href="./m.time_calc.php">Mobile view</a> -->
 
 	<hr/>
 	<div>
