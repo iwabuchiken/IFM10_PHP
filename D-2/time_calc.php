@@ -50,7 +50,7 @@
 				id="timecal_full"
 				name="date_label"
 				onmouseover="this.select()"
-				size="20"
+				size="18"
 				type="text"
 				value="<?php echo $date_label; ?>"
 				readonly
@@ -59,31 +59,26 @@
 	
 		<br />
 		<br />
-	
+		<input
+				id="timecal_full"
+				name="time_label"
+				onmouseover="this.select()"
+				size="10"
+				type="text"
+				value="<?php echo $time_label; ?>" 
+				readonly/>
+				
 		<input
 				id="timecal_full"
 				name="date_only_label"
 				onmouseover="this.select()"
-				size="20"
+				size="18"
 				type="text"
 				value="<?php echo $date_only_label; ?>"
 				readonly
 				
 				/>
 				<!-- value="<?php //echo $date_label; ?>" /> => Shown only the date data  -->
-	
-		<br />
-		<br />
-		
-		<input
-				id="timecal_full"
-				name="time_label"
-				onmouseover="this.select()"
-				size="20"
-				type="text"
-				value="<?php echo $time_label; ?>" 
-				readonly/>
-				
 		<br>
 		<br>
 		
@@ -91,7 +86,7 @@
 				id="timecal_full_serial"
 				name="time_label_serial"
 				onmouseover="this.select()"
-				size="20"
+				size="18"
 				type="text"
 				value="<?php echo $time_label_serial; ?>" 
 				readonly/>

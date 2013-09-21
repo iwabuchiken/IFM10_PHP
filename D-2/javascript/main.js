@@ -6,19 +6,6 @@ function show_msg() {
 
 function set_msg() {
 	
-//	show_msg();
-	
-//	$("#js").load("main.php");
-//	$("#js").html("ABCDE");
-//	$("#time_label").html("ABCDE");	//=> Nothing shown
-//	$("#js").html("<input id='timecal_full' " +
-//					"name='date_only_label' " +
-//					"onmouseover='this.select()' " +
-//					"size='20' " +
-//					"type='text' " +
-//					"value='<?php echo date('H:i:s'); ?>' " +
-//					"/>");
-	
 //	http://www.tohoho-web.com/js/jquery/ajax.htm
 	$.ajax({
 		
@@ -43,16 +30,11 @@ function set_msg() {
 
 function clear_msg() {
 	
-//	target = $("#js").get(0);
-	
-//	http://semooh.jp/jquery/api/internals/jQuery.removeData/elem/src-1/
-//	jQuery.removeData(target);	//=> Not working
-	
-//	target = $("#js");
-//	target.remove();
 	targets = $(".time_label");
 	
 //	http://semooh.jp/jquery/api/manipulation/remove/%5Bexpr%5D/
 	targets.remove();
 	
 }//function clear_msg() {
+
+// REF Fit the field size to the content http://stackoverflow.com/questions/6819548/onload-fit-input-size-to-length-of-text T.J. Crowder
