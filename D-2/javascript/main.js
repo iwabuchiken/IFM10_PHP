@@ -16,7 +16,8 @@ function set_msg() {
 	}).done(function(data, status, xhr) {
 		
 //	    $("#js").html(data);
-	    $("#js").append(data);
+//	    $("#js").append(data);
+	    $("#js").prepend(data);
 //	    $("#js").append("<br/>");
 	    
 	    

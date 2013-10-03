@@ -14,7 +14,9 @@
 					size="10"
 					type="text"
 					value="'.$time_label.'" 
-					readonly/>
+					readonly
+					class="input_area"/>
+							
 				<input
 					id="date_label"
 					name="date_label"
@@ -23,7 +25,9 @@
 					size="20"
 					type="text"
 					value="'.$date_label.'" 
-					readonly/>
+					readonly
+					class="input_area"/>
+							
 			</div>';
 
 ?>

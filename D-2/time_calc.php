@@ -41,56 +41,89 @@
 <!-- <body onLoad="document.time_form.date_label.focus();"> -->
 
 	<form accept-charset="UTF-8" action="." method="get" name="time_form">
-	
-		<br />
 		
-		<!-- REF 'this.select()' http://stackoverflow.com/questions/4543236/onclick-select-all-text-in-text-field-rails answered Dec 28 '10 at 2:27 -->
-<!-- 		REF readonly http://www.w3schools.com/tags/tag_input.asp -->
-		<input
-				id="timecal_full"
-				name="date_label"
-				onmouseover="this.select()"
-				size="18"
-				type="text"
-				value="<?php echo $date_label; ?>"
-				readonly
-				/>
-				<!-- value="<?php //echo $date_label; ?>" /> => Shown only the date data  -->
-	
-		<br />
-		<br />
-		<input
-				id="timecal_full"
-				name="time_label"
-				onmouseover="this.select()"
-				size="10"
-				type="text"
-				value="<?php echo $time_label; ?>" 
-				readonly/>
+		<table>
+			<tr>
+				<!-- REF 'this.select()' http://stackoverflow.com/questions/4543236/onclick-select-all-text-in-text-field-rails answered Dec 28 '10 at 2:27 -->
+		<!-- 		REF readonly http://www.w3schools.com/tags/tag_input.asp -->
+				<td class="labels">
 				
-		<input
-				id="timecal_full"
-				name="date_only_label"
-				onmouseover="this.select()"
-				size="18"
-				type="text"
-				value="<?php echo $date_only_label; ?>"
-				readonly
+					<img alt="Date" src="images/calendrier-date-icone-6871-48.png">
+
+					&nbsp;
+					<img alt="Time" src="images/chronometre-icone-4052-32.png">
+					
+				</td>
 				
-				/>
-				<!-- value="<?php //echo $date_label; ?>" /> => Shown only the date data  -->
-		<br>
-		<br>
-		
-		<input
-				id="timecal_full_serial"
-				name="time_label_serial"
-				onmouseover="this.select()"
-				size="18"
-				type="text"
-				value="<?php echo $time_label_serial; ?>" 
-				readonly/>
-				
+				<td>
+					<input
+							id="timecal_full"
+							name="date_label"
+							onmouseover="this.select()"
+							size="18"
+							type="text"
+							value="<?php echo $date_label; ?>"
+							readonly
+							
+							class="input_area"
+							/>
+							<!-- value="<?php //echo $date_label; ?>" /> => Shown only the date data  -->
+				</td>
+			</tr>
+			
+			<tr>
+				<td class="labels">
+					<img alt="Time" src="images/chronometre-icone-4052-32.png">
+				</td>
+				<td>
+					<input
+							id="timecal_full"
+							name="time_label"
+							onmouseover="this.select()"
+							size="10"
+							type="text"
+							value="<?php echo $time_label; ?>" 
+							readonly
+							class="input_area"/>
+				</td>
+			</tr>
+			
+			<tr>
+				<td class="labels">
+					<img alt="Date" src="images/calendrier-date-icone-6871-48.png">
+				</td>
+				<td>
+					<input
+							id="timecal_full"
+							name="date_only_label"
+							onmouseover="this.select()"
+							size="18"
+							type="text"
+							value="<?php echo $date_only_label; ?>"
+							readonly
+							
+							class="input_area"
+							/>
+							<!-- value="<?php //echo $date_label; ?>" /> => Shown only the date data  -->
+				</td>
+			</tr>
+			<tr>
+				<td class="labels">
+					<img alt="Serial" src="images/note-ecrivez-icone-9391-48.png">
+				</td>
+				<td>
+					<input
+							id="timecal_full_serial"
+							name="time_label_serial"
+							onmouseover="this.select()"
+							size="18"
+							type="text"
+							value="<?php echo $time_label_serial; ?>" 
+							readonly
+							class="input_area"/>
+				</td>
+			</tr>
+		</table>
 	</form>
 	
 	<hr/>
@@ -98,14 +131,24 @@
 <!-- 	<a href="./m.time_calc.php">Mobile view</a> -->
 
 	<hr/>
-	<div>
-		Javascript area
+	
+	<div id="js_area">
+		<!-- Javascript area -->
 	
 		<!-- http://homepage3.nifty.com/aya_js/js2/js214.htm -->
-		<INPUT TYPE="button" VALUE="GO" ONCLICK="set_msg();">
-		<INPUT TYPE="button" VALUE="CLEAR" ONCLICK="clear_msg();">
+		<!--  <INPUT TYPE="button" VALUE="GO" ONCLICK="set_msg();"> -->
+		<INPUT TYPE="image"
+				src="images/chronometre-icone-4052-32.png"
+				ONCLICK="set_msg();">
 		
-		<div id="js"><b>Times</b></div>
+		&nbsp; &nbsp;
+		
+		<INPUT TYPE="image"
+				src="images/halte-session-icone-4911-32.png"
+				ONCLICK="clear_msg();">
+		
+		<div><b>Times</b></div>
+		<div id="js"></div>
 		
 	</div>
 </body>

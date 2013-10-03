@@ -6,3 +6,28 @@ div.time_label {
 	padding: 5px 0px 5px 0px;
 	
 }
+
+.labels {
+	
+	background-color: #D8F781;
+	color: black;
+	padding: 0px 5px 0px 5px;
+	border: medium solid #0431B4;
+	font-weight: bold;
+}
+
+.input_area {
+	background-color: #CEF6F5;
+	border: medium solid #0431B4;
+	padding: 7px 5px 7px 5px;
+	font-size: medium;
+	font-weight: bold;
+}
+
+body {
+	background-color: #E6E0F8;
+}
+
+#js_area {
+	background-color: #F7BE81;
+}
