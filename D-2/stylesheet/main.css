@@ -7,6 +7,10 @@ div.time_label {
 	
 }
 
+input[readonly="readonly"], input[readonly] {
+	user-select: none;
+}
+
 .labels {
 	
 	background-color: #D8F781;
@@ -20,8 +24,14 @@ div.time_label {
 	background-color: #CEF6F5;
 	border: medium solid #0431B4;
 	padding: 7px 5px 7px 5px;
+	
 	font-size: medium;
 	font-weight: bold;
+	
+	text-align: center;
+	
+	width: 200px;
+	
 }
 
 body {

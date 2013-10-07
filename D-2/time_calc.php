@@ -59,7 +59,7 @@
 							id="timecal_full"
 							name="date_label"
 							onmouseover="this.select()"
-							size="18"
+							
 							type="text"
 							value="<?php echo $date_label; ?>"
 							readonly
@@ -79,7 +79,6 @@
 							id="timecal_full"
 							name="time_label"
 							onmouseover="this.select()"
-							size="10"
 							type="text"
 							value="<?php echo $time_label; ?>" 
 							readonly
@@ -96,7 +95,6 @@
 							id="timecal_full"
 							name="date_only_label"
 							onmouseover="this.select()"
-							size="18"
 							type="text"
 							value="<?php echo $date_only_label; ?>"
 							readonly
@@ -115,7 +113,6 @@
 							id="timecal_full_serial"
 							name="time_label_serial"
 							onmouseover="this.select()"
-							size="18"
 							type="text"
 							value="<?php echo $time_label_serial; ?>" 
 							readonly
@@ -139,7 +136,9 @@
 		
 		<INPUT TYPE="image"
 				src="images/halte-session-icone-4911-32.png"
-				ONCLICK="clear_msg();">
+				ONCLICK="clear_msg();"
+				
+				>
 		
 		&nbsp; &nbsp;
 		
