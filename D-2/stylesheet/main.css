@@ -26,8 +26,21 @@ div.time_label {
 
 body {
 	background-color: #E6E0F8;
+	margin-left: auto;
+	/*margin-right: auto;*/
+	text-align: center;
 }
 
 #js_area {
 	background-color: #F7BE81;
+}
+
+.text-center {
+	text-align: center;
+}
+
+#time_table {
+	/* REF http://kumacrow.blog111.fc2.com/blog-entry-294.html */
+	margin-left: auto;
+	margin-right: auto;
 }

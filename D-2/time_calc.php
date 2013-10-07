@@ -40,9 +40,8 @@
 <!-- <body onLoad="document.time_form.time_label.focus(); show_msg();"> -->
 <!-- <body onLoad="document.time_form.date_label.focus();"> -->
 
-	<form accept-charset="UTF-8" action="." method="get" name="time_form">
-		
-		<table>
+		<!--  <table class="text-center"> -->
+		<table id="time_table">
 			<tr>
 				<!-- REF 'this.select()' http://stackoverflow.com/questions/4543236/onclick-select-all-text-in-text-field-rails answered Dec 28 '10 at 2:27 -->
 		<!-- 		REF readonly http://www.w3schools.com/tags/tag_input.asp -->
@@ -124,7 +123,6 @@
 				</td>
 			</tr>
 		</table>
-	</form>
 	
 	<hr/>
 	
@@ -137,16 +135,18 @@
 	
 		<!-- http://homepage3.nifty.com/aya_js/js2/js214.htm -->
 		<!--  <INPUT TYPE="button" VALUE="GO" ONCLICK="set_msg();"> -->
-		<INPUT TYPE="image"
-				src="images/chronometre-icone-4052-32.png"
-				ONCLICK="set_msg();">
 		
-		&nbsp; &nbsp;
 		
 		<INPUT TYPE="image"
 				src="images/halte-session-icone-4911-32.png"
 				ONCLICK="clear_msg();">
 		
+		&nbsp; &nbsp;
+		
+		<INPUT TYPE="image"
+				src="images/chronometre-icone-4052-32.png"
+				ONCLICK="set_msg();">
+				
 		<div><b>Times</b></div>
 		<div id="js"></div>
 		
