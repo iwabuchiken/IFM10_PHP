@@ -1,3 +1,4 @@
+<?php require "partials/partial_1.php"?>
 <html>
 <head>
 	
@@ -40,90 +41,7 @@
 <!-- <body onLoad="document.time_form.time_label.focus(); show_msg();"> -->
 <!-- <body onLoad="document.time_form.date_label.focus();"> -->
 
-		<!--  <table class="text-center"> -->
-		<table id="time_table">
-			<tr>
-				<!-- REF 'this.select()' http://stackoverflow.com/questions/4543236/onclick-select-all-text-in-text-field-rails answered Dec 28 '10 at 2:27 -->
-		<!-- 		REF readonly http://www.w3schools.com/tags/tag_input.asp -->
-				<td class="labels">
-				
-					<img alt="Date" src="images/calendrier-date-icone-6871-48.png">
-
-					&nbsp;
-					<img alt="Time" src="images/chronometre-icone-4052-32.png">
-					
-				</td>
-				
-				<td>
-					<input
-							id="timecal_full"
-							name="date_label"
-							onmouseover="this.select()"
-							
-							type="text"
-							value="<?php echo $date_label; ?>"
-							readonly
-							
-							class="input_area"
-							/>
-							<!-- value="<?php //echo $date_label; ?>" /> => Shown only the date data  -->
-				</td>
-			</tr>
-			
-			<tr>
-				<td class="labels">
-					<img alt="Time" src="images/chronometre-icone-4052-32.png">
-				</td>
-				<td>
-					<input
-							id="timecal_full"
-							name="time_label"
-							onmouseover="this.select()"
-							type="text"
-							value="<?php echo $time_label; ?>" 
-							readonly
-							class="input_area"/>
-				</td>
-			</tr>
-			
-			<tr>
-				<td class="labels">
-					<img alt="Date" src="images/calendrier-date-icone-6871-48.png">
-				</td>
-				<td>
-					<input
-							id="timecal_full"
-							name="date_only_label"
-							onmouseover="this.select()"
-							type="text"
-							value="<?php echo $date_only_label; ?>"
-							readonly
-							
-							class="input_area"
-							/>
-							<!-- value="<?php //echo $date_label; ?>" /> => Shown only the date data  -->
-				</td>
-			</tr>
-			<tr>
-				<td class="labels">
-					<img alt="Serial" src="images/note-ecrivez-icone-9391-48.png">
-				</td>
-				<td>
-					<input
-							id="timecal_full_serial"
-							name="time_label_serial"
-							onmouseover="this.select()"
-							type="text"
-							value="<?php echo $time_label_serial; ?>" 
-							readonly
-							class="input_area"/>
-				</td>
-			</tr>
-		</table>
-	
-	<hr/>
-	
-<!-- 	<a href="./m.time_calc.php">Mobile view</a> -->
+	<?php show_time_data_table();?>
 
 	<hr/>
 	
@@ -146,6 +64,12 @@
 				src="images/chronometre-icone-4052-32.png"
 				ONCLICK="set_msg();">
 				
+		&nbsp; &nbsp;
+
+		<INPUT TYPE="image"
+				src="images/refresh.png"
+				ONCLICK="page_reload();">
+		
 		<div><b>Times</b></div>
 		<div id="js"></div>
 		

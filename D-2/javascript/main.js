@@ -38,4 +38,11 @@ function clear_msg() {
 	
 }//function clear_msg() {
 
+function page_reload() {
+	
+	//REF http://www5e.biglobe.ne.jp/access_r/hp/javascript/js_091.html
+	window.location.reload();
+	
+}
+
 // REF Fit the field size to the content http://stackoverflow.com/questions/6819548/onload-fit-input-size-to-length-of-text T.J. Crowder
