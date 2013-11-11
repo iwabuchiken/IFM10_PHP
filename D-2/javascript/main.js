@@ -45,4 +45,52 @@ function page_reload() {
 	
 }
 
+function change_sweets(name) {
+	
+	alert('The option with value => ' + name);
+}
+
+$(document).ready(function(){
+    
+	alert("Ready");
+	
+//	//REF http://api.jquery.com/on/
+//	var name = $(this).val());
+//	var name = $("select").val();
+//	$("select").on('change', change_sweets(name));
+	
+	//REF http://stackoverflow.com/questions/11216192/html-select-jquery-change-not-working answered Jun 26 '12 at 21:29
+	$("select").on('change', function() {
+		alert('The option with value ' + $(this).val());
+		$("div#sweets").text("Selected => " + str);
+//		$("div#sweets").html("Selected => " + str);
+	});
+	
+//	$("select").on('change', {name: $(this).val()}, function() {
+//	    alert('The option with value ' + name);
+//		$("div#sweets").text("Selected => " + str);
+////		$("div#sweets").html("Selected => " + str);
+//	});
+		//=> Not working
+	
+	
+	
+//    $("select").change(function () {
+//    	var select = $("select");
+////    	$("select#selected_item").change(function () {
+////    		var select = $("select#selected_item");
+//    	
+//        var str = select.options[select.selectedIndex].value;
+////          $("select#selected_item").each(function () {
+////                str += $(this).text() + " ";
+////              });
+////          $("div").text(str);
+////          alert("Selected => " + str);
+//          $("div#sweets").text("Selected => " + str);
+//        });
+//		})
+//        .change();
+
+});//$(document).ready(function(){
+
 // REF Fit the field size to the content http://stackoverflow.com/questions/6819548/onload-fit-input-size-to-length-of-text T.J. Crowder
