@@ -1,6 +1,6 @@
+a p && pushd C:\WORKS\WS\Cake\IFM10_PHP && gitk
 a
 pushd C:\WORKS\WS\Cake\IFM10_PHP && gitk
-a p && pushd C:\WORKS\WS\Cake\IFM10_PHP && gitk
 
 pushd C:\WORKS\WS\Cake\IFM10_PHP
 gitk
