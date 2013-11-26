@@ -19,6 +19,7 @@ copy ..\ImageFileManager6\.gitignore .
 
 
 
+
 g init
 g a .
 gitk
