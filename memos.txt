@@ -16,6 +16,7 @@ C:\WORKS\WORKSPACES_ANDROID\FM\a
 copy ..\ImageFileManager6\.gitignore .
 
 
+
 g init
 g a .
 gitk
