@@ -1,5 +1,7 @@
 a p && pushd C:\WORKS\WS\Cake\IFM10_PHP && gitk
 a
+
+# No "a p"
 pushd C:\WORKS\WS\Cake\IFM10_PHP && gitk
 
 pushd C:\WORKS\WS\Cake\IFM10_PHP
@@ -56,3 +58,25 @@ pushd C:\WORKS\WORKSPACES_ANDROID\GIMP\Icons
 	
 [sqlite3]
 pushd C:\Users\IwabuchiKen\Desktop
+
+[logs]=========================================================
+@30/11/2013 00:23:43
+
+[sqlite3]
+CREATE TABLE keywords(
+   id			INTEGER PRIMARY KEY     AUTOINCREMENT	NOT NULL,
+   name			CHAR(50),
+   genre_id		INT,
+   category_id	INT,
+   remote_id	INT,
+   created_at	INT,
+   updated_at	INT,
+   created		DATETIME	default	current_timestamp,
+   modified		DATETIME	default	current_timestamp
+);
+
+insert into keywords(name) values('病院');
+insert into keywords(name) values('介護');
+
+SELECT * FROM keywords;
+SELECT id, name, created FROM keywords;
