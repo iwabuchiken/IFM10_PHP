@@ -63,6 +63,11 @@ pushd C:\Users\IwabuchiKen\Desktop
 @30/11/2013 00:23:43
 
 [sqlite3]
+pushd C:\WORKS\WS\Cake\IFM10_PHP\cakephp-2.3.10\app\webroot
+
+sqlite3 development.sqlite3
+
+
 CREATE TABLE keywords(
    id			INTEGER PRIMARY KEY     AUTOINCREMENT	NOT NULL,
    name			CHAR(50),
@@ -77,6 +82,10 @@ CREATE TABLE keywords(
 
 insert into keywords(name) values('病院');
 insert into keywords(name) values('介護');
+insert into keywords(name) values('hospital');
 
 SELECT * FROM keywords;
 SELECT id, name, created FROM keywords;
+
+[mysql(lollipop)]
+INSERT INTO keywords (name) VALUES ('driving');

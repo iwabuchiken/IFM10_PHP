@@ -1,0 +1,16 @@
+<p><?php echo "list" ?></p>
+
+<p><?php echo "keywords => ".count($keywords); ?></p>
+<p><?php echo "keywords => ".$keywords[0]['Keyword']['name']; ?></p>
+
+<table>
+	<?php
+		for($i = 0; $i < count($keywords); $i ++) {
+			echo "<tr>";
+				echo "<td>".$keywords[$i]['Keyword']['id']."</td>";
+				echo "<td>".$keywords[$i]['Keyword']['name']."</td>";
+			echo "</tr>";
+		}
+
+	?>
+</table>
