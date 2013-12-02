@@ -13,7 +13,6 @@ echo $this->Form->end('Save keyword');
 
 <br>
 <form action="/IFM10_PHP/cakephp-2.3.10/keywords/add"
-      
       id="KeywordAddForm"
       method="post"
       accept-charset="utf-8">
@@ -28,3 +27,8 @@ echo $this->Form->end('Save keyword');
 	<input  type="submit" value="Save keyword"/>
     </div>
 </form>
+
+<?php echo $this->Html->link(
+    'List',
+    array('controller' => 'keywords', 'action' => 'index')
+); ?>

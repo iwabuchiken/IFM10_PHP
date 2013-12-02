@@ -25,4 +25,18 @@ $keyword['Keyword']['name']
 				$keyword['Keyword']['name']
 			?></p>
 	
-		
+<?php
+    echo $this->Html->link(
+	'List',
+	array('controller' => 'keywords', 'action' => 'index'));
+    
+    echo "&nbsp;|&nbsp;";
+
+    echo $this->Html->link(
+	'Add',
+	array('controller' => 'keywords', 'action' => 'add'));
+    echo "<br/>";
+    
+    
+
+?>
