@@ -4,8 +4,8 @@ a
 # No "a p"
 pushd C:\WORKS\WS\Cake\IFM10_PHP && gitk
 
-# Remote
-/rails_apps/nr4/cakephp-2.3.10/keywords
+# Remote (FileZilla)
+/rails_apps/nr4/cakephp-2.3.10
 
 pushd C:\WORKS\WS\Cake\IFM10_PHP
 gitk
@@ -65,7 +65,7 @@ pushd C:\Users\IwabuchiKen\Desktop
 [logs]=========================================================
 @30/11/2013 00:23:43
 
-[sqlite3]
+[sqlite3]======================================
 pushd C:\WORKS\WS\Cake\IFM10_PHP\cakephp-2.3.10\app\webroot
 
 sqlite3 development.sqlite3
@@ -83,6 +83,7 @@ CREATE TABLE keywords(
    modified		DATETIME	default	current_timestamp
 );
 
+
 insert into keywords(name) values('病院');
 insert into keywords(name) values('介護');
 insert into keywords(name) values('hospital');
@@ -90,5 +91,28 @@ insert into keywords(name) values('hospital');
 SELECT * FROM keywords;
 SELECT id, name, created FROM keywords;
 
-[mysql(lollipop)]
+pushd C:\WORKS\WS\Cake\IFM10_PHP\cakephp-2.3.10\app\webroot && sqlite3 development.sqlite3
+
+DROP TABLE keywords;
+
+CREATE TABLE keywords(
+   id			INTEGER PRIMARY KEY     AUTOINCREMENT	NOT NULL,
+   name			CHAR(50),
+   genre_id		INT,
+   category_id	INT,
+   remote_id	INT,
+   created_at		VARCHAR(30),
+   updated_at		VARCHAR(30),
+   created		DATETIME	default	current_timestamp,
+   modified		DATETIME	default	current_timestamp
+);
+
+pragma table_info(keywords);
+
+[mysql(lollipop)]======================================
 INSERT INTO keywords (name) VALUES ('driving');
+
+#REF http://www.yukun.info/blog/2008/11/alter-table-add-drop-change-modify.html
+ALTER TABLE keywords CHANGE COLUMN created_at created_at VARCHAR(30)
+
+ALTER TABLE keywords CHANGE COLUMN updated_at updated_at VARCHAR(30)

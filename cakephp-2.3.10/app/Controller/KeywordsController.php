@@ -106,7 +106,8 @@ class KeywordsController extends AppController {
 //	if ($this->request->is('get')) {
 //	    throw new MethodNotAllowedException();
 //	}
-
+	//REF http://book.cakephp.org/2.0/ja/models/deleting-data.html
+	//REF http://book.cakephp.org/2.0/ja/core-libraries/helpers/html.html
 	if ($this->Keyword->deleteAll(array('id >=' => 1))) {
 	    $this->Session->setFlash(__('Keywords all deleted'));
 	    return $this->redirect(array('action' => 'index'));
