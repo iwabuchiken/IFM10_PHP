@@ -1,9 +1,17 @@
 <h1>Blog posts</h1>
 
-<?php echo $this->Html->link(
-    'Add Post',
-    array('controller' => 'keywords', 'action' => 'add')
-); ?>
+<?php 
+    echo $this->Html->link(
+	'Add Post',
+	array('controller' => 'keywords', 'action' => 'add'));
+    
+    echo " | ";
+    
+    echo $this->Form->postLink(
+                'Delete all',
+                array('controller' => 'keywords', 'action' => 'delete_all'),
+                array('confirm' => "Are you sure? => All data will be deleted"));
+?>
 
 <table>
     <tr>

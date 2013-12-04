@@ -4,6 +4,9 @@ a
 # No "a p"
 pushd C:\WORKS\WS\Cake\IFM10_PHP && gitk
 
+# Remote
+/rails_apps/nr4/cakephp-2.3.10/keywords
+
 pushd C:\WORKS\WS\Cake\IFM10_PHP
 gitk
 

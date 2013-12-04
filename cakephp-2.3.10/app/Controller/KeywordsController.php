@@ -101,4 +101,22 @@ class KeywordsController extends AppController {
 	}
     }
     
+    public function delete_all() {
+	
+//	if ($this->request->is('get')) {
+//	    throw new MethodNotAllowedException();
+//	}
+
+	if ($this->Keyword->deleteAll(array('id >=' => 1))) {
+	    $this->Session->setFlash(__('Keywords all deleted'));
+	    return $this->redirect(array('action' => 'index'));
+	} else {
+	    
+	    $this->Session->setFlash(__('Keywords not deleted'));
+	    return $this->redirect(array('action' => 'index'));
+	    
+	}
+	
+    }
+    
 }
