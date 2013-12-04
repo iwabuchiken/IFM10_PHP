@@ -1,4 +1,4 @@
-<h1>Blog posts</h1>
+<h1>Blog posts(Total=<?php echo count($keywords)?>)</h1>
 
 <?php 
     echo $this->Html->link(
@@ -17,6 +17,9 @@
     <tr>
         <th>Id</th>
         <th>Name</th>
+        <th>Genre</th>
+        <th>Category</th>
+        <th>Remote id</th>
         <th>Created</th>
         <th></th>
         <th></th>
@@ -35,6 +38,19 @@
                             'controller' => 'keywords',
                             'action' => 'view', $kw['Keyword']['id'])); ?>
         </td>
+	
+        <td>
+            <?php echo $kw['Keyword']['genre_id']; ?>
+        </td>
+	
+        <td>
+            <?php echo $kw['Keyword']['category_id']; ?>
+        </td>
+	
+        <td>
+            <?php echo $kw['Keyword']['remote_id']; ?>
+        </td>
+	
         <td><?php echo $kw['Keyword']['created']; ?></td>
         <td>
 	    <?php echo $this->Html->link('Edit',
