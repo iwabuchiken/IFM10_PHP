@@ -7,6 +7,7 @@ pushd C:\WORKS\WS\Cake\IFM10_PHP && gitk
 # Remote (FileZilla)
 /rails_apps/nr4/cakephp-2.3.10
 
+# Pushd
 pushd C:\WORKS\WS\Cake\IFM10_PHP
 gitk
 
