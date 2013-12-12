@@ -24,8 +24,8 @@ App::uses('Debugger', 'Utility');
 ?>
 
 <?php echo $this->Html->link(
-    'Admins',
-    array('controller' => 'admins', 'action' => 'index')
+    'List',
+    array('controller' => 'keywords', 'action' => 'index')
 ); ?>
 
 <h2><?php echo __d('cake_dev', 'Release Notes for CakePHP %s.', Configure::version()); ?></h2>
