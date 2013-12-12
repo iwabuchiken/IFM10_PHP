@@ -1,14 +1,9 @@
-D-8
-
-v-1.0.1
----
-1. Local db => Created
+J/C
 # Please enter the commit message for your changes. Lines starting
 # with '#' will be ignored, and an empty message aborts the commit.
- On branch D-8_rails-app_NR4
+# Not currently on any branch.
 # Changes to be committed:
 #   (use "git reset HEAD <file>..." to unstage)
 #
-	modified:   COMMIT_EDITMSG
-	new file:   cakephp-2.3.10/app/webroot/development.sqlite3
+#	modified:   app/webroot/development.sqlite3
 #
