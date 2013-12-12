@@ -1,9 +1,9 @@
 <?php
-class Keyword extends AppModel {
+class Word extends AppModel {
     
     public $validate = array(
 	//REF http://oneday.ter.jp/php/cakephp-php/927.html
-        'name' => array(
+        'w1' => array(
             array(
 		   'rule' => 'notEmpty',
 		    'message' => 'Input a name'
@@ -17,3 +17,4 @@ class Keyword extends AppModel {
     );
     
 }
+

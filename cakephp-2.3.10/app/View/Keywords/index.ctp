@@ -11,6 +11,13 @@
                 'Delete all',
                 array('controller' => 'keywords', 'action' => 'delete_all'),
                 array('confirm' => "Are you sure? => All data will be deleted"));
+    
+    echo " | ";
+    
+    echo $this->Html->link(
+                'Admins',
+                array('controller' => 'admins', 'action' => 'index'));
+
 ?>
 
 <table>
