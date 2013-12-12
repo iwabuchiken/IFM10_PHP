@@ -1,0 +1,118 @@
+a p && pushd C:\WORKS\WS\Cake\IFM10_PHP && gitk
+a
+
+# No "a p"
+pushd C:\WORKS\WS\Cake\IFM10_PHP && gitk
+
+# Remote (FileZilla)
+/rails_apps/nr4/cakephp-2.3.10
+
+pushd C:\WORKS\WS\Cake\IFM10_PHP
+gitk
+
+C:\WORKS\PROGRAMS\FreeMind\FreeMind.exe C:\WORKS\WS\WS_Android~\FM\IFM9\IFM9.mm
+
+C:\Users\IwabuchiKen\Desktop
+
+C:\WORKS\WORKSPACES_ANDROID\FM\a
+
+
+[Git]
+copy ..\ImageFileManager6\.gitignore .
+
+
+g init
+g a .
+gitk
+
+g p origin master
+
+git remote add origin git@github.com:iwabuchiken/ImageFileManager9.git
+
+git log --grep=B4 -3
+git log --grep=B5 -3
+
+git log --grep=master -3
+
+git log --grep=m -3
+
+git log --grep=refresh -3
+
+pushd C:\WORKS\WORKSPACES_ANDROID\FM
+g a .
+g c -a
+
+gitk
+
+
+[Git for mm]
+pushd C:\WORKS\WORKSPACES_ANDROID\FM
+
+[svn]
+pushd C:\WORKS\WORKSPACES_ANDROID\Sample\05_Techbooster
+svn co https://techbooster.googlecode.com/svn/trunk/ContextMenu/ ContextMenu
+
+[GIMP]
+pushd C:\WORKS\WORKSPACES_ANDROID\GIMP\Icons
+
+[Android]
+"Failed to pull selection"
+	=> REF: http://yamato-iphone.blogspot.jp/2011/05/failed-to-pull-selection.html
+	
+[sqlite3]
+pushd C:\Users\IwabuchiKen\Desktop
+
+[logs]=========================================================
+@30/11/2013 00:23:43
+
+[sqlite3]======================================
+pushd C:\WORKS\WS\Cake\IFM10_PHP\cakephp-2.3.10\app\webroot
+
+sqlite3 development.sqlite3
+
+
+CREATE TABLE keywords(
+   id			INTEGER PRIMARY KEY     AUTOINCREMENT	NOT NULL,
+   name			CHAR(50),
+   genre_id		INT,
+   category_id	INT,
+   remote_id	INT,
+   created_at	INT,
+   updated_at	INT,
+   created		DATETIME	default	current_timestamp,
+   modified		DATETIME	default	current_timestamp
+);
+
+
+insert into keywords(name) values('病院');
+insert into keywords(name) values('介護');
+insert into keywords(name) values('hospital');
+
+SELECT * FROM keywords;
+SELECT id, name, created FROM keywords;
+
+pushd C:\WORKS\WS\Cake\IFM10_PHP\cakephp-2.3.10\app\webroot && sqlite3 development.sqlite3
+
+DROP TABLE keywords;
+
+CREATE TABLE keywords(
+   id			INTEGER PRIMARY KEY     AUTOINCREMENT	NOT NULL,
+   name			CHAR(50),
+   genre_id		INT,
+   category_id	INT,
+   remote_id	INT,
+   created_at		VARCHAR(30),
+   updated_at		VARCHAR(30),
+   created		DATETIME	default	current_timestamp,
+   modified		DATETIME	default	current_timestamp
+);
+
+pragma table_info(keywords);
+
+[mysql(lollipop)]======================================
+INSERT INTO keywords (name) VALUES ('driving');
+
+#REF http://www.yukun.info/blog/2008/11/alter-table-add-drop-change-modify.html
+ALTER TABLE keywords CHANGE COLUMN created_at created_at VARCHAR(30)
+
+ALTER TABLE keywords CHANGE COLUMN updated_at updated_at VARCHAR(30)
