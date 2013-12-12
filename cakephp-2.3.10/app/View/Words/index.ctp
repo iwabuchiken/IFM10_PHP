@@ -31,6 +31,37 @@
         <th></th>
     </tr>
 
+    <?php foreach ($words as $w): ?>
+    <tr>
+        <td><?php echo $w['Word']['id']; ?></td>
+	
+        <td>
+            <?php echo $w['Word']['w1']; ?>
+        </td>
+	
+        <td>
+            <?php echo $w['Word']['w2']; ?>
+        </td>
+	
+        <td>
+            <?php echo $w['Word']['w3']; ?>
+        </td>
+	
+        <td><?php echo $w['Word']['remote_id']; ?></td>
+	
+        <td><?php echo $w['Word']['lang_id']; ?></td>
+	
+	<td>
+            <?php echo $this->Form->postLink(
+                'Delete',
+                array('action' => 'delete', $w['Word']['id']),
+                array('confirm' => "Are you sure? => ".$w['Word']['w1']));
+            ?>
+        </td>
+	
+    </tr>
+    <?php endforeach; ?>
+    <?php unset($w); ?>
     <!-- Here is where we loop through our $posts array, printing out post info -->
 
 </table>

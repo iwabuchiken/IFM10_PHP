@@ -1,6 +1,9 @@
 a p && pushd C:\WORKS\WS\Cake\IFM10_PHP\cakephp-2.3.10 && gitk
 a
 
+# No git
+a p && pushd C:\WORKS\WS\Cake\IFM10_PHP\cakephp-2.3.10
+
 # No "a p"
 pushd C:\WORKS\WS\Cake\IFM10_PHP\cakephp-2.3.10 && gitk
 
@@ -101,6 +104,40 @@ CREATE TABLE admins(
 .explain on
 pragma table_info(admins);
 
+#REF answered Nov 23 '10 at 7:59 <http://stackoverflow.com/questions/4253804/insert-new-column-into-table-in-sqlite>
+ALTER TABLE words RENAME TO words_old;
+
+CREATE TABLE words(
+   id			INTEGER PRIMARY KEY     AUTOINCREMENT	NOT NULL,
+   w1			CHAR(50),
+   w2			CHAR(50),
+   w3			CHAR(50),
+   
+   text_ids		CHAR(50),
+   text_id		INT,
+   lang_id		INT,
+
+   dbId			INT,
+   remote_id		INT,
+
+   created_at_mill	INT,
+   updated_at_mill	INT,
+
+   created		DATETIME	default	current_timestamp,
+   modified		DATETIME	default	current_timestamp
+);
+
+INSERT INTO words 
+    (w1, w2, w3,
+	text_ids, text_id, lang_id, dbId,
+	created_at_mill, updated_at_mill, created, modified)
+    SELECT w1, w2, w3,
+	text_ids, text_id, lang_id, dbId,
+	created_at_mill, updated_at_mill, created, modified
+    FROM words_old;
+
+DROP TABLE words_old;
+
 [mysql(lollipop)]======================================
 INSERT INTO keywords (name) VALUES ('driving');
 
@@ -134,3 +171,37 @@ CREATE TABLE admins (
    modified		DATETIME	default	current_timestamp
 
 );
+
+#REF http://dev.mysql.com/doc/refman/5.1/ja/rename-table.html
+RENAME TABLE words TO words_old;
+
+CREATE TABLE words (
+   id			INT	    UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+   w1			CHAR(50),
+   w2			CHAR(50),
+   w3			CHAR(50),
+   
+   text_ids		TEXT,
+   text_id		INT,
+   lang_id		INT,
+   dbId			INT,
+   remote_id		INT,
+
+   created_at_mill	INT,
+   updated_at_mill	INT,
+
+   created		DATETIME	default	current_timestamp,
+   modified		DATETIME	default	current_timestamp
+
+);
+
+INSERT INTO words 
+    (w1, w2, w3,
+	text_ids, text_id, lang_id, dbId,
+	created_at_mill, updated_at_mill, created, modified)
+    SELECT w1, w2, w3,
+	text_ids, text_id, lang_id, dbId,
+	created_at_mill, updated_at_mill, created, modified
+    FROM words_old;
+
+DROP TABLE words_old;

@@ -4,14 +4,11 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/WORKS/WS/Cake/IFM10_PHP/cakephp-2.3.10/memos.txt</file>
-            <file>file:/C:/WORKS/WS/Cake/IFM10_PHP/cakephp-2.3.10/app/View/Keywords/view.ctp</file>
-            <file>file:/C:/WORKS/WS/Cake/IFM10_PHP/cakephp-2.3.10/app/View/Keywords/add.ctp</file>
-            <file>file:/C:/WORKS/WS/Cake/IFM10_PHP/cakephp-2.3.10/app/View/Words/index.ctp</file>
-            <file>file:/C:/WORKS/WS/Cake/IFM10_PHP/cakephp-2.3.10/app/Controller/WordsController.php</file>
-            <file>file:/C:/WORKS/WS/Cake/IFM10_PHP/cakephp-2.3.10/app/Model/Word.php</file>
+            <file>file:/C:/WORKS/WS/Cake/IFM10_PHP/cakephp-2.3.10/app/Controller/AdminsController.php</file>
             <file>file:/C:/WORKS/WS/Cake/IFM10_PHP/cakephp-2.3.10/app/View/Pages/home.ctp</file>
-            <file>file:/C:/WORKS/WS/Cake/IFM10_PHP/cakephp-2.3.10/app/View/Keywords/index.ctp</file>
+            <file>file:/C:/WORKS/WS/Cake/IFM10_PHP/cakephp-2.3.10/app/View/Admins/index.ctp</file>
             <file>file:/C:/WORKS/WS/Cake/IFM10_PHP/cakephp-2.3.10/app/Controller/KeywordsController.php</file>
+            <file>file:/C:/WORKS/WS/Cake/IFM10_PHP/cakephp-2.3.10/app/View/Admins/show_log.ctp</file>
         </group>
     </open-files>
 </project-private>
