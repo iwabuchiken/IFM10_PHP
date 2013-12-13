@@ -27,6 +27,8 @@
         <th>w3</th>
         <th>Remote id</th>
         <th>Lang id</th>
+        <th>created_at_mill</th>
+        <th>updated_at_mill</th>
         <th></th>
         <th></th>
     </tr>
@@ -50,6 +52,10 @@
         <td><?php echo $w['Word']['remote_id']; ?></td>
 	
         <td><?php echo $w['Word']['lang_id']; ?></td>
+	
+        <td><?php echo $w['Word']['created_at_mill']; ?></td>
+	
+        <td><?php echo $w['Word']['updated_at_mill']; ?></td>
 	
 	<td>
             <?php echo $this->Form->postLink(

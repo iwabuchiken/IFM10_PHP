@@ -1,0 +1,2 @@
+[13/12/2013 11:26:58]-----------------------------------------
+1. Column "created_at_mill" => The value is Rails' "created_at" value, not "created_at_mill"

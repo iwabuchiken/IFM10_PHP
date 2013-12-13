@@ -70,7 +70,6 @@ pushd C:\Users\IwabuchiKen\Desktop
 
 [sqlite3]======================================
 pushd C:\WORKS\WS\Cake\IFM10_PHP\cakephp-2.3.10\app\webroot
-
 sqlite3 development.sqlite3
 
 
@@ -110,12 +109,96 @@ CREATE TABLE keywords(
    modified		DATETIME	default	current_timestamp
 );
 
+.explain on
 pragma table_info(keywords);
+
+# Change column name
+.explain on
+pragma table_info(words);
+
+ALTER TABLE words RENAME TO words_old;
+
+#REF data types http://stackoverflow.com/questions/7337882/sqlite-and-integer-types-int-integer-bigint answered Sep 7 '11 at 17:22
+CREATE TABLE words(
+    id		INTEGER PRIMARY KEY     AUTOINCREMENT	NOT NULL,
+    w1		CHAR(50),
+    w2		CHAR(50),
+    w3		CHAR(50),
+
+    text_ids	VARCHAR(100),
+    text_id	INT,
+    lang_id	INT,
+
+    dbId	INT,
+    remote_id	INT,
+
+    created_at_mill	INT,
+    updated_at_mill	INT,
+
+    created		DATETIME	default	current_timestamp,
+    modified		DATETIME	default	current_timestamp
+);
+
+INSERT INTO words(
+	id, w1, w2, w3,
+	text_ids, text_id, lang_id,
+	dbId, remote_id,
+	created_at_mill, updated_at_mill, created, modified)
+    SELECT id, w1, w2, w3,
+	text_ids, text_id, lang_id,
+	dbId, remote_id,
+	created_at_mill, updated_at_mill, created, modified
+    FROM words_old;
+
+DROP TABLE words_old;
+
+ALTER TABLE words RENAME TO words_old;
+
+#REF data types http://stackoverflow.com/questions/7337882/sqlite-and-integer-types-int-integer-bigint answered Sep 7 '11 at 17:22
+CREATE TABLE words(
+    id		INTEGER PRIMARY KEY     AUTOINCREMENT	NOT NULL,
+    w1		CHAR(50),
+    w2		CHAR(50),
+    w3		CHAR(50),
+
+    text_ids	VARCHAR(100),
+    text_id	INT,
+    lang_id	INT,
+
+    dbId	INT,
+    remote_id	INT,
+
+    created_at_mill	CHAR(30),
+    updated_at_mill	CHAR(30),
+
+    created		DATETIME	default	current_timestamp,
+    modified		DATETIME	default	current_timestamp
+);
+
+INSERT INTO words(
+	id, w1, w2, w3,
+	text_ids, text_id, lang_id,
+	dbId, remote_id,
+	created_at_mill, updated_at_mill, created, modified)
+    SELECT id, w1, w2, w3,
+	text_ids, text_id, lang_id,
+	dbId, remote_id,
+	created_at_mill, updated_at_mill, created, modified
+    FROM words_old;
+
+DROP TABLE words_old;
 
 [mysql(lollipop)]======================================
 INSERT INTO keywords (name) VALUES ('driving');
 
 #REF http://www.yukun.info/blog/2008/11/alter-table-add-drop-change-modify.html
-ALTER TABLE keywords CHANGE COLUMN created_at created_at VARCHAR(30)
+#ALTER TABLE keywords CHANGE COLUMN created_at created_at VARCHAR(30)
 
-ALTER TABLE keywords CHANGE COLUMN updated_at updated_at VARCHAR(30)
+#ALTER TABLE keywords CHANGE COLUMN updated_at updated_at VARCHAR(30)
+
+#ALTER TABLE words CHANGE COLUMN created_at_mill created_at_mill BIGINT
+
+#ALTER TABLE words CHANGE COLUMN created_at_mill created_at_mill CHAR(30)
+
+ALTER TABLE words CHANGE COLUMN updated_at_mill updated_at_mill CHAR(30)
+
