@@ -1,4 +1,9 @@
+# Git
 a p && pushd C:\WORKS\WS\Cake\IFM10_PHP && gitk
+
+# Git / no "a p"
+pushd C:\WORKS\WS\Cake\IFM10_PHP && gitk
+
 a
 
 # No "a p"
@@ -188,6 +193,27 @@ INSERT INTO words(
 
 DROP TABLE words_old;
 
+---------------------------
+CREATE TABLE categories(
+    id		INTEGER PRIMARY KEY     AUTOINCREMENT	NOT NULL,
+    
+    name	CHAR(50),
+    genre_id	INT,
+
+    remote_id	INT,
+
+    created_at	CHAR(30),
+    updated_at	CHAR(30),
+
+    created		DATETIME	default	current_timestamp,
+    modified		DATETIME	default	current_timestamp
+);
+
+.tables
+
+.explain on
+pragma table_info(categories);
+
 [mysql(lollipop)]======================================
 INSERT INTO keywords (name) VALUES ('driving');
 
@@ -202,3 +228,19 @@ INSERT INTO keywords (name) VALUES ('driving');
 
 ALTER TABLE words CHANGE COLUMN updated_at_mill updated_at_mill CHAR(30)
 
+----------------------------
+CREATE TABLE categories (
+
+    id		INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+
+    name	VARCHAR(50),
+    genre_id	INT,
+
+    remote_id	INT,
+
+    created_at	VARCHAR(30),
+    updated_at	VARCHAR(30),
+
+    created DATETIME DEFAULT NULL,
+    modified DATETIME DEFAULT NULL
+);

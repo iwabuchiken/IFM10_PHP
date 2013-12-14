@@ -17,6 +17,13 @@
     
     <tr>
 	<td>
+	    <?php echo $this->Html->link('NR4::Categories',
+			array('controller' => 'categories', 'action' => 'index')); ?>
+	</td>
+    </tr>
+    
+    <tr>
+	<td>
 	    <?php echo $this->Html->link('Log',
 			array('controller' => 'admins', 'action' => 'show_log')); ?>
 	</td>
