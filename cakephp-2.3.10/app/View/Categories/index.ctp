@@ -7,11 +7,16 @@
     
     echo " | ";
     
+    echo $this->Form->postLink(
+                'Delete all',
+                array('controller' => 'categories', 'action' => 'delete_all'),
+                array('confirm' => "Are you sure? => All data will be deleted"));
+
+    echo " | ";
+    
     echo $this->Html->link(
                 'Admins',
                 array('controller' => 'admins', 'action' => 'index'));
-    
-    echo " | ";
     
 ?>
 

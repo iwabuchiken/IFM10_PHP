@@ -31,7 +31,20 @@ class CategoriesController extends AppController {
         }
     }//public function add()
 
-    public function delete_all() {
+   public function delete_all() {
+	
+	//REF http://book.cakephp.org/2.0/ja/models/deleting-data.html
+	//REF http://book.cakephp.org/2.0/ja/core-libraries/helpers/html.html
+	if ($this->Category->deleteAll(array('id >=' => 1))) {
+	    $this->Session->setFlash(__('Categories all deleted'));
+	    return $this->redirect(array('action' => 'index'));
+	} else {
+	    
+	    $this->Session->setFlash(__('Categories not deleted'));
+	    return $this->redirect(array('action' => 'index'));
+	    
+	}
+	
     }
-
+ 
 }
