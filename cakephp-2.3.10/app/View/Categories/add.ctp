@@ -14,6 +14,7 @@
     echo $this->Form->input('name',
 		    array(
 			'onmouseover'	=> "focus()",
+			//REF class http://greenday.sakura.ne.jp/cakememo/2012/04/25/cakephp2-0-this-form-input%E4%BD%BF%E3%81%84%E6%96%B9%E4%BE%8B/
 			'class'		=> 'focus'
 		    ));
     echo $this->Form->input('genre_id',
