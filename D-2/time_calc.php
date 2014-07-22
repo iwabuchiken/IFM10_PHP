@@ -45,20 +45,6 @@
 
 	<hr/>
 	
-	<select name="sweets" id="selected_item">
-	    <option>Chocolate</option>
-	
-	    <option selected="selected">Candy</option>
-	    <option>Taffy</option>
-	    <option>Caramel</option>
-	    <option>Fudge</option>
-	    <option>Cookie</option>
-	  </select>
-	
-		<br>
-		<div id="sweets">Sweetes</div>
-	<hr/>
-	
 	<div id="js_area">
 		<!-- Javascript area -->
 	
@@ -76,7 +62,9 @@
 		
 		<INPUT TYPE="image"
 				src="images/chronometre-icone-4052-32.png"
-				ONCLICK="set_msg();">
+				ONCLICK="set_msg();"
+				onmouseover="set_msg();"
+				>
 				
 		&nbsp; &nbsp;
 
